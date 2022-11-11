@@ -4,19 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "BTTask_StartDialogue.generated.h"
+#include "BTTask_EndDialogue.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class JUMPSCARE_API UBTTask_StartDialogue : public UBTTaskNode
+class JUMPSCARE_API UBTTask_EndDialogue : public UBTTaskNode
 {
 	GENERATED_BODY()
 	
-public:
-	UBTTask_StartDialogue();
-
+	
 protected:
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 

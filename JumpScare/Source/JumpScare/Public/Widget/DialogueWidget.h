@@ -14,6 +14,10 @@ class JUMPSCARE_API UDialogueWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	void SetSpeakerName(FText Value) { SpeakerName = Value; }
+	void SetDialogueText(FText Value) { DialogueText = Value; }
+	
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true), BlueprintReadWrite)
 	FText DialogueText;

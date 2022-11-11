@@ -11,11 +11,13 @@ const FName ADialogueAIController::BB_Key_DialogueWidget(TEXT("DialogueWidget"))
 
 void ADialogueAIController::StartDialouge()
 {
-
 	UBlackboardComponent* BC = Blackboard;
 	if (ensureMsgf(UseBlackboard(BBAsset, BC), TEXT("BBAsset is not valid!")))
 	{
-		ensureMsgf(RunBehaviorTree(BTAsset), TEXT("BTAsset is not valid!"));
+		if (ensureMsgf(RunBehaviorTree(BTAsset), TEXT("BTAsset is not valid!")))
+		{
+			RunBehaviorTree(BTAsset);
+		}
 	}
 }
 
@@ -23,6 +25,6 @@ void ADialogueAIController::EndDialogue()
 {
 	UBehaviorTreeComponent* BTC = Cast<UBehaviorTreeComponent>(BrainComponent);
 	if (BTC)
-		BTC->StopTree();
-		//BTC->StopLogic(FString());
+		BTC->StopLogic(FString());
+		//BTC->StopTree();
 }

@@ -4,6 +4,12 @@
 #include "JumpScareGameModeBase.h"
 #include "Public/Widget/HUDWidget.h"
 #include "Kismet/GamePlayStatics.h"
+#include "Public/Player/PlayerCharacter.h"
+
+UDialogueWidget* AJumpScareGameModeBase::GetDialogueWidget()
+{
+	return HUDWidget->GetDialogueWidget();
+}
 
 void AJumpScareGameModeBase::BeginPlay()
 {
@@ -16,5 +22,11 @@ void AJumpScareGameModeBase::BeginPlay()
 	if (ensureMsgf(HUDWidget, TEXT("AJumpScareGameModeBase : HUDWidget is nullptr")))
 	{
 		HUDWidget->AddToViewport();
+	}
+
+	APlayerCharacter* Character = Cast<APlayerCharacter>(PC->GetCharacter());
+	if (ensureMsgf(Character != nullptr, TEXT("GameModeBase : Character is nullptr")))
+	{
+		Character->SetHUDWidget(HUDWidget);
 	}
 }

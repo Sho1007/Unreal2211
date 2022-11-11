@@ -17,6 +17,8 @@ class JUMPSCARE_API UHUDWidget : public UUserWidget
 public:
 	UFUNCTION(BlueprintCallable)
 	void DisplayMessage(bool bShowMessage);
+
+	class UDialogueWidget* GetDialogueWidget() { return WBP_Dialogue; }
 	
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true, BindWidget), BlueprintReadWrite)

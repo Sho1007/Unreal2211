@@ -21,7 +21,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable)
 	virtual void Interact() override;
 
 public:	
@@ -30,6 +29,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	FText GetNPCName() { return Name; }
 
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true), EditAnywhere, BlueprintReadWrite)

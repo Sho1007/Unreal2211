@@ -13,6 +13,8 @@ class JUMPSCARE_API AJumpScareGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	class UDialogueWidget* GetDialogueWidget();
 protected:
 	virtual void BeginPlay() override;
 	
