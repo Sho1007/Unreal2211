@@ -14,7 +14,6 @@ void UHUDWidget::DisplayMessage(bool bShowMessage)
 			WBP_InteractMessage->SetMessageText(FText::FromName("Press E"));
 			WBP_InteractMessage->SetVisibility(ESlateVisibility::Visible);
 		}
-		
 	}
 	else
 	{
@@ -22,6 +21,5 @@ void UHUDWidget::DisplayMessage(bool bShowMessage)
 		{
 			WBP_InteractMessage->SetVisibility(ESlateVisibility::Hidden);
 		}
-		
 	}
 }

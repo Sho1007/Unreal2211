@@ -19,7 +19,7 @@ public:
 	void DisplayMessage(bool bShowMessage);
 
 	class UDialogueWidget* GetDialogueWidget() { return WBP_Dialogue; }
-	
+
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true, BindWidget), BlueprintReadWrite)
 	class UDialogueWidget* WBP_Dialogue;

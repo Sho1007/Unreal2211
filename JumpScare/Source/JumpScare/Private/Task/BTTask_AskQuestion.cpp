@@ -7,6 +7,7 @@
 #include "../../Public/Widget/ResponseListWidget.h"
 
 #include "Kismet/GameplayStatics.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 
 void UBTTask_AskQuestion::ResponseReceive(FText Response)
 {
@@ -30,7 +31,9 @@ EBTNodeResult::Type UBTTask_AskQuestion::ExecuteTask(UBehaviorTreeComponent& Own
     PrepareResponse();
 
     FInputModeUIOnly InputMode;
-    InputMode.SetWidgetToFocus(RLW->TakeWidget());
+    InputMode.SetWidgetToFocus(RLW->GetCachedWidget());
+    UGameplayStatics::GetPlayerController(GetWorld(), 0)->SetInputMode(InputMode);
+
     return EBTNodeResult::InProgress;
 }
 

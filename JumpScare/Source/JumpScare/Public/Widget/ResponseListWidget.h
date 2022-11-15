@@ -20,6 +20,9 @@ class JUMPSCARE_API UResponseListWidget : public UUserWidget
 	
 public:
 	void AddToChild(UResponseWidget* Widget);
+
+protected:
+	virtual void NativeConstruct() override;
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true, BindWidget), BlueprintReadOnly)
 	UVerticalBox* VB_ResponseList;

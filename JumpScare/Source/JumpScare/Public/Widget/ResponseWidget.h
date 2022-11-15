@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Button.h"
 #include "ResponseWidget.generated.h"
 
 DECLARE_DELEGATE_OneParam(FDele_ResponseWidget_Single_OneParam, FText);
@@ -17,19 +18,24 @@ class JUMPSCARE_API UResponseWidget : public UUserWidget
 	GENERATED_BODY()
 	
 public:
-	UResponseWidget(const FObjectInitializer& ObjectInitializer);
-
 	void SetText(FText Value) { Text = Value; }
 	
 	FDele_ResponseWidget_Single_OneParam ResponseClicked;
 
+protected:
+	virtual void NativeConstruct() override;
+
 private:
 	UFUNCTION()
 	void OnResponseClicked();
+	UFUNCTION()
+	void OnResponseHovered();
+	UFUNCTION()
+	void OnResponseUnHovered();
 
 private:
-	UPROPERTY(meta = (AllowPrivateAccess, ExposeOnSpawn), BlueprintReadOnly)
-	class UButton* Btn_Response;
+	UPROPERTY(meta = (AllowPrivateAccess, BindWidget), BlueprintReadOnly)
+	UButton* Btn_Response;
 	UPROPERTY(meta = (AllowPrivateAccess, ExposeOnSpawn),BlueprintReadOnly)
 	FText Text;
 };

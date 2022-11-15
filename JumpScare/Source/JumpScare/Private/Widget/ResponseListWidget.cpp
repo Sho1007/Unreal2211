@@ -7,3 +7,9 @@ void UResponseListWidget::AddToChild(UResponseWidget* Widget)
 {
 	VB_ResponseList->AddChildToVerticalBox(Widget);
 }
+
+void UResponseListWidget::NativeConstruct()
+{
+	Super::NativeConstruct();
+	bIsFocusable = true;
+}

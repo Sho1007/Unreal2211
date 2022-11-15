@@ -17,10 +17,10 @@ public:
 	class UDialogueWidget* GetDialogueWidget();
 protected:
 	virtual void BeginPlay() override;
-	
+	class UHUDWidget* GetHUDWidget() { return HUDWidget; }
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true), BlueprintReadWrite)
-	class UHUDWidget* HUDWidget;
+	UHUDWidget* HUDWidget;
 	
 	UPROPERTY(meta = (AllowPrivateAccess = true), EditAnywhere, BlueprintReadWrite)
 	class TSubclassOf<UHUDWidget> HUDWidgetClass;

@@ -2,9 +2,7 @@
 Unreal Portfolio (Horror)
 
 # Doing
-Dialogue Function   
-> to convert to CPP
-* Convert BTT_Question
+
 
 # To do
 * Need to Use Data Structure
@@ -16,3 +14,4 @@ Dialogue Function
 ## Dialogue Function
 * Convert PlayerCharacter -> CheckInteract to CPP
 * Convert BTT_StartDialogue / BTT_EndDialogue / BTT_DisplayLine
+* Convert BTT_AskQuestion
