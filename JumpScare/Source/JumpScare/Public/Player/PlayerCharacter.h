@@ -28,13 +28,30 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 
+	// Bind Function
+	UFUNCTION()
+	void MoveForward(float AxisValue);
+	UFUNCTION()
+	void MoveRight(float AxisValue);
+	UFUNCTION()
+	void LookUp(float AxisValue);
+	UFUNCTION()
+	void LookRight(float AxisValue);
+
+	// Interact
 	UFUNCTION(BlueprintCallable)
 	void InteractCheck(AActor*& InteractAcotr);
 
 	void SetHUDWidget(class UHUDWidget* Value) { HUDWidget = Value; }
 
-	// BindFunction
 	void Interact();
+
+	// PickUp
+	void OnInspect();
+	void OnInspectRelease();
+	void ToggleItemPickUp();
+
+	void ToggleMovement();
 
 private:
 	UPROPERTY(meta = (AllowPrivateAccess = true), BlueprintReadOnly, EditDefaultsOnly)
@@ -47,4 +64,26 @@ private:
 	// HUD
 	UPROPERTY(meta = (AllowPrivateAccess = true), BlueprintReadWrite)
 	UHUDWidget* HUDWidget = nullptr;
+
+	// PickUp
+	UPROPERTY(meta = (AllowPrivateAccess = true), EditDefaultsOnly, BlueprintReadOnly)
+	USceneComponent* HoldingComponent;
+
+	UPROPERTY(EditAnywhere)
+	class APickUp* CurrentPickUpItem;
+
+	bool bCanMove;
+	bool bCanCameraMove;
+	bool bHoldingItem;
+	bool bInspecting;
+
+	float PitchMax;
+	float PitchMin;
+
+	FVector HoldingComp;
+	FRotator LastRotation;
+
+	FHitResult Hit;
+	FComponentQueryParams DefaultComponentQueryParams;
+	FCollisionResponseParams DefaultCollisionResponseParam;
 };

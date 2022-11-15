@@ -2,7 +2,8 @@
 Unreal Portfolio (Horror)
 
 # Doing
-
+Inspecting Function
+* Inspect 기능 시에 오류 있음 (코드 뜯어봐야 할듯)
 
 # To do
 * Need to Use Data Structure
